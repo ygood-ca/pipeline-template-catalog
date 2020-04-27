@@ -39,6 +39,7 @@ pipeline {
       }
     }  
     stage('Node Image Push') {
+      agent any
       when {
         allOf {
           branch 'master'
