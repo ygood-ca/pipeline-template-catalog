@@ -56,7 +56,7 @@ pipeline {
         branch 'master'
       }
       steps { 
-        containerBuildPushGeneric("${repoOwner}/${repository}", "latest", "${gcpProject}") {
+        containerBuildPushGeneric("vuejs-app/${repoOwner}/${repository}", "latest", "${gcpProject}") {
           unstash "install"
         }
       }
