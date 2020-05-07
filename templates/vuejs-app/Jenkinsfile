@@ -57,7 +57,9 @@ pipeline {
       }
       steps { 
         containerBuildPushGeneric("vuejs-app/${repoOwner}/${repository}", "latest", "${gcpProject}") {
-          unstash "install"
+          checkout scm
+          gitShortCommit()
+          stash name: "k8s-deploy", includes: ".kubernetes/**"
         }
       }
     }
