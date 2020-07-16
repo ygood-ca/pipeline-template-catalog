@@ -23,6 +23,10 @@ parameters:
     type: string
     displayName: Deployment Domain
     defaultValue: cbws.io
+  - name: registry
+    type: string
+    displayName: Docker Registry
+    defaultValue: docker.aws.cbws.io
 multibranch:
   branchSource:
     github:
