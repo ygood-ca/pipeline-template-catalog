@@ -41,7 +41,7 @@ pipeline {
         beforeAgent true
         anyOf { branch 'master'; branch 'development' }
       }
-      steps { 
+      steps {
         imgBuildNexus("microblog-frontend", "${repoOwner}", "${registry}") {
           checkout scm
           gitShortCommit()
