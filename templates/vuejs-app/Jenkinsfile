@@ -55,8 +55,7 @@ pipeline {
         beforeAgent true
         branch 'master'
       }
-      steps {
-        imgBuildNexus("microblog-frontend", "${repoOwner}", "${registry}") {
+      imgBuildNexus("microblog-frontend", "${repoOwner}", "${registry}") {
           checkout scm
           gitShortCommit()
           stash name: "k8s-deploy", includes: ".kubernetes/**"
@@ -73,7 +72,7 @@ pipeline {
       // }
       steps {
         //input(message: "Should we deploy?", ok: "Deploy", submitterParameter: "APPROVER")
-        blogKubeDeploy("${repository}", "${repoOwner}", "gcr.io/${gcpProject}", "${deploymentDomain}") {
+        blogKubeDeploy("${repository}", "${repoOwner}", "${registry}", "${deploymentDomain}") {
           unstash "k8s-deploy"
         }
       }
