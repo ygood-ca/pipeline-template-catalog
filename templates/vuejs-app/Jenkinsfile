@@ -55,7 +55,8 @@ pipeline {
         beforeAgent true
         branch 'master'
       }
-      imgBuildNexus("microblog-frontend", "${repoOwner}", "${registry}") {
+      steps {
+        imgBuildNexus("microblog-frontend", "${repoOwner}", "${registry}") {
           checkout scm
           gitShortCommit()
           stash name: "k8s-deploy", includes: ".kubernetes/**"
