@@ -30,4 +30,4 @@ multibranch:
       credentialsId: ${githubCredentialId}
       repoOwner: ${repoOwner}
       repository: ${repository}
-  markerFile: .vuejs     
+  markerFile: .vuejs 
